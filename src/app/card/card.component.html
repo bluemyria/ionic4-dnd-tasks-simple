@@ -1,0 +1,7 @@
+<div class="card" [dropTarget]="cardTarget" [dragSource]="cardSource" [style.opacity]="opacity$|async">
+  <div class="border">
+    <ng-container *ngTemplateOutlet="cardInnerTemplate;
+                                             context: {$implicit: card}">
+    </ng-container>
+  </div>
+</div>
