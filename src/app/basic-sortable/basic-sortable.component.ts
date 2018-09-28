@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-interface Card { id: number; text: string; };
+interface Card { id: number; text: string; height: number };
 
 @Component({
   selector: 'basic-sortable',
@@ -13,21 +13,27 @@ export class BasicSortableComponent {
     {
       id: 1,
       text: 'Write a cool JS library',
+      height: 1,
     }, {
       id: 2,
       text: 'Make it generic enough',
+      height: 2,
     }, {
       id: 3,
       text: 'Write README',
+      height: 1,
     }, {
       id: 4,
       text: 'Create some examples',
+      height: 4,
     }, {
       id: 5,
       text: 'Write a glorious Medium post to promote it (note that this element is taller, and far more important, than the others)',
+      height: 8,
     }, {
       id: 6,
       text: 'Sit back and relax',
+      height: 3,
     }];
 
   origCards: Card[] = this.cards;

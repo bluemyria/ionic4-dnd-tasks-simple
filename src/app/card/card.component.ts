@@ -16,6 +16,7 @@ import { SkyhookDndService } from "@angular-skyhook/core";
 interface Card {
   id: number;
   text: string;
+  height: number;
 }
 
 interface DraggingCard {
@@ -49,6 +50,7 @@ export class CardComponent implements OnDestroy {
   @Input() index: number;
   @Input() id: number;
   @Input() text: string;
+  @Input() height: number;
 
   cardSource = this.dnd.dragSource<DraggingCard>("CARD", {
     beginDrag: () => {
@@ -68,6 +70,9 @@ export class CardComponent implements OnDestroy {
     hover: monitor => {
       const dragIndex = monitor.getItem().index;
       const hoverIndex = this.index;
+
+      console.log("IN dropTarget");
+      console.log(this.elRef);
 
       // Don't replace items with themselves
       if (dragIndex === hoverIndex) {
@@ -100,9 +105,12 @@ export class CardComponent implements OnDestroy {
         return;
       }
 
-      // console.log("moving card")
+      console.log("moving card");
+      console.log("drag: ", dragIndex, " hover: ", hoverIndex);
+
       // Time to actually perform the action
       this.onMove.emit([dragIndex, hoverIndex]);
+      console.log(monitor.getItem());
 
       // Note: we're mutating the item here!
       // Generally it's better to avoid mutations,

@@ -12,11 +12,10 @@ import { BasicSortableComponent } from '../basic-sortable/basic-sortable.compone
 import { ContainerComponent } from '../container/container.component';
 import { CardComponent, CardInnerDirective } from '../card/card.component';
 
+import { SkyhookDndService } from "@angular-skyhook/core";
 import { SkyhookMultiBackendModule } from '@angular-skyhook/multi-backend';
 
 //import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SkyhookDndService } from "@angular-skyhook/core";
-
 import { customMultiBackend } from '../customMultiBackend';
 
 @NgModule({
@@ -32,7 +31,8 @@ import { customMultiBackend } from '../customMultiBackend';
     ContainerComponent,
     CardComponent,
     CardInnerDirective,
-    BasicSortableComponent
+    BasicSortableComponent,
+
   ],
   providers: [SkyhookDndService]
 })
